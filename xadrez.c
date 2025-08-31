@@ -28,90 +28,59 @@
 // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
 // Inclua o uso de continue e break dentro dos loops.
 
-void MOVIMENTOS_BISPO() {
-
-    // 5 CASAS DIAGONAL PARA CIMA E PARA DIREITA
-    int numero_movimentos_bispo = 5;
-
-    printf("\n--- --- Movimentos da Peça Bispo --- ---\n");
-    printf("-> 5 Casas na Diagoal para Cima e para Direita\n");
-    for (int index = 0; index < numero_movimentos_bispo; index++)
-    {
-        printf("Movimento N° - %d.\n", index + 1);
+void MOVIMENTOS_BISPO(int numero_movimentos_bispo) {
+    if (numero_movimentos_bispo > 0) {
+        printf("Movimento N° - %d.\n", 6 - numero_movimentos_bispo); // para numerar certinho
         printf("Cima\n");
         printf("Direita\n");
+        MOVIMENTOS_BISPO(numero_movimentos_bispo - 1);
     }
-    printf("--- --- Fim dos Movimentos da Peça Bispo --- ---\n");
-
 }
 
-void MOVIMENTOS_RAINHA() {
-
-    // 8 CASAS PARA ESQUERDA
-    int numero_movimentos_rainha = 0;
-
-    printf("\n--- --- Movimentos da Peça Rainha --- ---\n");
-    printf("-> 8 Casas para Esquerda\n");
-    while (numero_movimentos_rainha < 8)
-    {
-        printf("Movimento N° - %d.\n", numero_movimentos_rainha + 1);
+void MOVIMENTOS_RAINHA(int numero_movimentos_rainha) {
+    if (numero_movimentos_rainha > 0) {
+        printf("Movimento N° - %d.\n", 9 - numero_movimentos_rainha);
         printf("Esquerda\n");
-        numero_movimentos_rainha++;
+        MOVIMENTOS_RAINHA(numero_movimentos_rainha - 1);
     }
-    printf("--- --- Fim dos Movimentos da Peça Rainha --- ---\n");
-
 }
 
-void MOVIMENTOS_TORRE() {
-
-    // 5 CASAS PARA FRENTE
-    int numero_movimentos_torre = 0;
-
-    printf("\n--- --- Movimentos da Peça Torre --- ---\n");
-    printf("-> 5 Casas para Direita\n");
-    do
-    {
-        printf("Movimento N° - %d.\n", numero_movimentos_torre + 1);
+void MOVIMENTOS_TORRE(int numero_movimentos_torre) {
+    if (numero_movimentos_torre > 0) {
+        printf("Movimento N° - %d.\n", 6 - numero_movimentos_torre);
         printf("Direita\n");
-        
-        numero_movimentos_torre++;
-    } while (numero_movimentos_torre < 5);
-    printf("--- --- Fim dos Movimentos da Peça Torre --- ---\n");
-
+        MOVIMENTOS_TORRE(numero_movimentos_torre - 1);
+    }
 }
 
-void MOVIMENTOS_CAVALO() {
-
-    // 2 CASAS PARA BAIXO E 1 PARA ESQUERDA
-    int numero_movimentos_cavalo = 1;
-
-    printf("\n--- --- Movimentos da Peça Cavalo --- ---\n");
-    printf("-> 2 Casas para Baixo e 1 para Esquerda\n");
-    
-    while (numero_movimentos_cavalo--)
-    {
-        printf("Movimento N° - %d.\n", numero_movimentos_cavalo + 1);
-        for (int index_cavalo = 0; index_cavalo < 2; index_cavalo++)
-        {
-            printf("Baixo\n");
-        }
-        
+void MOVIMENTOS_CAVALO(int numero_movimentos_cavalo) {
+    if (numero_movimentos_cavalo > 0) {
+        printf("Movimento N° - %d.\n", numero_movimentos_cavalo);
+        printf("Baixo\n");
+        printf("Baixo\n");
         printf("Esquerda\n");
+        MOVIMENTOS_CAVALO(numero_movimentos_cavalo - 1);
     }
-    
-
-    printf("--- --- Fim dos Movimentos da Peça Cavalo --- ---\n");
-
 }
 
 int main() {
-
     setlocale(LC_ALL, "pt_BR.UTF-8");
 
-    MOVIMENTOS_BISPO();
-    MOVIMENTOS_RAINHA();
-    MOVIMENTOS_TORRE();
-    MOVIMENTOS_CAVALO();
+    printf("\n--- --- Movimentos da Peça Bispo --- ---\n");
+    MOVIMENTOS_BISPO(5);
+    printf("--- --- Fim dos Movimentos da Peça Bispo --- ---\n");
+
+    printf("\n--- --- Movimentos da Peça Rainha --- ---\n");
+    MOVIMENTOS_RAINHA(8);
+    printf("--- --- Fim dos Movimentos da Peça Rainha --- ---\n");
+
+    printf("\n--- --- Movimentos da Peça Torre --- ---\n");
+    MOVIMENTOS_TORRE(5);
+    printf("--- --- Fim dos Movimentos da Peça Torre --- ---\n");
+
+    printf("\n--- --- Movimentos da Peça Cavalo --- ---\n");
+    MOVIMENTOS_CAVALO(1);
+    printf("--- --- Fim dos Movimentos da Peça Cavalo --- ---\n");
 
     return 0;
 }
