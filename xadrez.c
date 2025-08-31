@@ -80,6 +80,30 @@ void MOVIMENTOS_TORRE() {
 
 }
 
+void MOVIMENTOS_CAVALO() {
+
+    // 2 CASAS PARA BAIXO E 1 PARA ESQUERDA
+    int numero_movimentos_cavalo = 1;
+
+    printf("\n--- --- Movimentos da Peça Cavalo --- ---\n");
+    printf("-> 2 Casas para Baixo e 1 para Esquerda\n");
+    
+    while (numero_movimentos_cavalo--)
+    {
+        printf("Movimento N° - %d.\n", numero_movimentos_cavalo + 1);
+        for (int index_cavalo = 0; index_cavalo < 2; index_cavalo++)
+        {
+            printf("Baixo\n");
+        }
+        
+        printf("Esquerda\n");
+    }
+    
+
+    printf("--- --- Fim dos Movimentos da Peça Cavalo --- ---\n");
+
+}
+
 int main() {
 
     setlocale(LC_ALL, "pt_BR.UTF-8");
@@ -87,6 +111,7 @@ int main() {
     MOVIMENTOS_BISPO();
     MOVIMENTOS_RAINHA();
     MOVIMENTOS_TORRE();
+    MOVIMENTOS_CAVALO();
 
     return 0;
 }
